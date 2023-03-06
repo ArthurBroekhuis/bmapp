@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Roles Routes //
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/roles',[ RoleController::class, 'index' ])->name('roles');
+    Route::get('/roles/create', [ RoleController::class, 'create' ]);
+    Route::put('/roles', [ RoleController::class, 'store' ])->name('roles');
+    Route::get('/roles/delete', [ RoleController::class, 'delete' ]);
+});
 
+// End roles routes //
+
+
+// Standard laravel breeze routes //
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Route::get('/dashboard', function () {

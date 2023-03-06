@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-primary {
+    background: #1c8adb;
+}
+.text-primary{
+    color: #1c8adb;
+}
+
+.button {
+background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-width: 50px;
+}
+.button span {
+    margin: 10px;
+}
+
+.button-primary {
+    color: #1c8adb;
+    border: 1px solid #1c8adb;
+}
