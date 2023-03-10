@@ -24,3 +24,72 @@ background: white;
     color: #1c8adb;
     border: 1px solid #1c8adb;
 }
+.user_new_form {
+    width: 300px;
+    border: #1c8adb 1px solid;
+    border-radius: 15px;
+    color: whitesmoke;
+}
+.user_new{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 700px;
+}
+.user_new_content {
+margin: 10px;
+}
+
+
+.icon {
+    height: 40px;
+    width: 40px;
+    color: white;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+/* Icon colors */
+.icon-red {
+    background-color: #ff0000;
+}
+.icon-blue {
+    background-color: #3f8cff;
+}
+.icon-black {
+    background-color: #000000;
+}
+.icon-green {
+    background-color: #1c7430;
+}.icon-orange {
+     background-color: #ff7200;
+ }
+
+/* end icon colors */
+/* User colors */
+.kleur-red {
+    color: #ff0000;
+}
+.kleur-blue {
+    color: #3f8cff;
+}
+.kleur-black {
+    color: #000000;
+}
+.kleur-green {
+    color: #1c7430;
+}.kleur-orange {
+     color: #ff7200;
+ }
+.kleur-sky {
+    color: #38bdf8;
+}
+.kleur-amber {
+    color: #78350f;
+}.kleur-teal {
+     color: #14b8a6;
+ }
+/* end User colors */
