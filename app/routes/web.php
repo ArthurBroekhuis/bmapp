@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // End roles routes //
+
+// Users Routes //
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/users',[ UserController::class, 'index' ])->name('users');
+    Route::get('/users/delete', [ UserController::class, 'delete' ]);
+
+    Route::get('users/new', [UserController::class, 'create'])->name('register');
+    Route::post('users/new', [UserController::class, 'store']);
+
+    Route::get('users/new/info', [UserController::class, 'create_info'])->name('register-info');
+    Route::post('users/new/info', [UserController::class, 'store_info']);
+});
+
+// End users routes //
 
 
 // Standard laravel breeze routes //
