@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Roles') }}
+            {{ __('Users') }}
         </h2>
     </x-slot>
 
@@ -47,7 +47,7 @@
                             <div class="relative">
                                 <div
                                     class="appearance-none h-full rounded-r rounded-l sm:rounded-l-none border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                    <a class="text-primary" href="roles/create"><i class="fa-solid fa-plus"></i> Create New</a>
+                                    <a class="text-primary" href="users/new"><i class="fa-solid fa-plus"></i> Create New</a>
 
                                 </div>
                             </div>
@@ -59,11 +59,15 @@
                                     <tr>
                                         <th
                                             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            Rol
+                                            Naam
                                         </th>
                                         <th
                                             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            Guard
+                                            Email
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Job
                                         </th>
                                         <th
                                             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -76,37 +80,39 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($roles as $role)
+                                    @foreach($users as $user)
                                     <tr>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 w-10 h-10">
-{{--                                                    <img class="w-full h-full rounded-full"--}}
-{{--                                                         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"--}}
-{{--                                                         alt="" />--}}
+                                                    <div class="w-full h-full rounded-full text-[30px]">
+
+                                                    <div class="icon icon-{{ $user->icon_color }}">{{$user->icon}}</div>
+                                                </div>
                                                 </div>
                                                 <div class="ml-3">
                                                     <p class="text-gray-900 whitespace-no-wrap">
-                                                        {{ $role->name }}
+                                                        {{ $user->name }}
+
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900 whitespace-no-wrap">{{ $role->guard_name }}</p>
+                                            <p class="text-gray-900 whitespace-no-wrap">{{ $user->email }}</p>
+                                        </td>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="kleur-{{ $user->user_info->color }} whitespace-no-wrap">
+                                            {{ $user->user_info->job }}
+                                        </p>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900 whitespace-no-wrap">
-                                                {{ $role->created_at }}
+                                                {{ $user->created_at }}
                                             </p>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <span
-                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                        <span aria-hidden
-                                              class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                        <span class="relative">Active</span>
-                                    </span>
+                                            @include('buttons')
                                         </td>
                                     </tr>
                                     @endforeach
