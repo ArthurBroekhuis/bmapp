@@ -26,11 +26,11 @@ class UserController extends Controller
         $roles = Role::all();
         return view('users/users', ['roles' => $roles, 'users' => $users]);
     }
-    public function edit(): view
+    public function show($id): view
     {
-        $users = User::all();
+        $user = User::find($id);
         $roles = Role::all();
-        return view('users/edit', ['roles' => $roles, 'users' => $users]);
+        return view('users/edit', ['roles' => $roles, 'user' => $user]);
     }
 
     public function create(): View

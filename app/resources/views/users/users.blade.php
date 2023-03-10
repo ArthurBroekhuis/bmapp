@@ -92,7 +92,7 @@
                                                 </div>
                                                 <div class="ml-3">
                                                     <p class="text-gray-900 whitespace-no-wrap">
-                                                        {{ $user->name }}
+                                                        <a class="link" href="/user/{{ $user->id }}/edit"> {{ $user->name }} </a>
 
                                                     </p>
                                                 </div>
