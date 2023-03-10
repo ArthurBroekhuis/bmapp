@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users',[ UserController::class, 'index' ])->name('users');
     Route::get('/users/delete', [ UserController::class, 'delete' ]);
+    Route::get('user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 
     Route::get('users/new', [UserController::class, 'create'])->name('register');
     Route::post('users/new', [UserController::class, 'store']);

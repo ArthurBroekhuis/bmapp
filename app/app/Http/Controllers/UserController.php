@@ -26,6 +26,12 @@ class UserController extends Controller
         $roles = Role::all();
         return view('users/users', ['roles' => $roles, 'users' => $users]);
     }
+    public function edit(): view
+    {
+        $users = User::all();
+        $roles = Role::all();
+        return view('users/edit', ['roles' => $roles, 'users' => $users]);
+    }
 
     public function create(): View
     {
